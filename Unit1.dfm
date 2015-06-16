@@ -4,7 +4,7 @@ object Form1: TForm1
   AutoSize = True
   BorderStyle = bsNone
   Caption = 'Form1'
-  ClientHeight = 142
+  ClientHeight = 177
   ClientWidth = 1467
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,54 +21,88 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 1467
-    Height = 45
+    Height = 77
     Align = alTop
     Caption = '00:00:00'
     Color = clLime
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clLime
-    Font.Height = -37
+    Font.Height = -64
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
     OnDblClick = lbl1DblClick
     OnMouseDown = lbl1MouseDown
-    ExplicitWidth = 170
+    ExplicitWidth = 292
   end
   object scrlbr1: TScrollBar
-    Left = 0
-    Top = 45
-    Width = 1467
-    Height = 44
-    Align = alTop
+    Left = 300
+    Top = 77
+    Width = 200
+    Height = 100
+    Align = alLeft
+    Constraints.MaxHeight = 100
+    Constraints.MaxWidth = 200
+    Constraints.MinHeight = 100
+    Constraints.MinWidth = 200
     Max = 250
     Min = 8
     PageSize = 0
-    Position = 8
+    Position = 48
     TabOrder = 0
     OnChange = scrlbr1Change
+    ExplicitLeft = 0
+    ExplicitTop = 45
   end
   object edt1: TEdit
     Left = 0
-    Top = 89
-    Width = 1467
-    Height = 21
-    Align = alTop
+    Top = 77
+    Width = 100
+    Height = 100
+    Align = alLeft
     Color = clLime
+    Constraints.MaxHeight = 100
+    Constraints.MaxWidth = 100
+    Constraints.MinHeight = 100
+    Constraints.MinWidth = 100
     TabOrder = 1
     Text = '00:00:59'
     OnKeyDown = edt1KeyDown
+    ExplicitLeft = -20
+    ExplicitTop = 83
   end
   object btn1: TButton
-    Left = 0
-    Top = 110
-    Width = 1467
-    Height = 32
-    Align = alTop
+    Left = 200
+    Top = 77
+    Width = 100
+    Height = 100
+    Align = alLeft
     Caption = 'KUR'
+    Constraints.MaxHeight = 100
+    Constraints.MaxWidth = 100
+    Constraints.MinHeight = 100
+    Constraints.MinWidth = 100
     TabOrder = 2
     OnClick = btn1Click
+    ExplicitLeft = 0
+    ExplicitTop = 69
+  end
+  object mmo1: TMemo
+    Left = 100
+    Top = 77
+    Width = 100
+    Height = 100
+    Align = alLeft
+    Constraints.MaxHeight = 100
+    Constraints.MaxWidth = 100
+    Constraints.MinHeight = 100
+    Constraints.MinWidth = 100
+    Lines.Strings = (
+      'Hedefi Buraya '
+      'Yaz'#305'n...')
+    TabOrder = 3
+    ExplicitLeft = 80
   end
   object tmr1: TTimer
     Enabled = False
