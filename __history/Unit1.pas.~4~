@@ -1,0 +1,86 @@
+unit Unit1;
+
+interface
+
+uses
+    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+    Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+    TForm1 = class(TForm)
+        lbl1: TLabel;
+        scrlbr1: TScrollBar;
+        edt1: TEdit;
+        btn1: TButton;
+        tmr1: TTimer;
+        procedure scrlbr1Change(Sender: TObject);
+        procedure lbl1DblClick(Sender: TObject);
+        procedure tmr1Timer(Sender: TObject);
+        procedure btn1Click(Sender: TObject);
+    private
+        { Private declarations }
+    public
+        { Public declarations }
+    end;
+
+var
+    Form1: TForm1;
+    h, m, s: integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btn1Click(Sender: TObject);
+var
+    sl: TStringList;
+begin
+    sl := TStringList.Create;
+    try
+        begin
+            sl.Delimiter := ':';
+            sl.DelimitedText := edt1.Text;
+            h := StrToInt(sl[0]);
+            m := strtoint(sl[1]);
+            s := strtoint(sl[2]);
+            tmr1.Enabled := True;
+            scrlbr1.Visible := False;
+            scrlbr1.Enabled := False;
+            btn1.Visible := False;
+            btn1.Enabled := False;
+            edt1.Visible := False;
+            edt1.Enabled := False;
+        end;
+    finally
+        edit.Text := '00:00:00';
+    end;
+
+    sl.Free;
+end;
+
+procedure TForm1.lbl1DblClick(Sender: TObject);
+begin
+    scrlbr1.Visible := not scrlbr1.Visible;
+    scrlbr1.Enabled := not scrlbr1.Enabled;
+    btn1.Visible := not btn1.Visible;
+    btn1.Enabled := not btn1.Enabled;
+    edt1.Visible := not edt1.Visible;
+    edt1.Enabled := not edt1.Enabled;
+end;
+
+procedure TForm1.scrlbr1Change(Sender: TObject);
+begin
+    lbl1.Font.Size := scrlbr1.Position;
+    scrlbr1.Height := 35;
+    if ((lbl1.Height + scrlbr1.Height) > 75) then
+    begin
+        Height := lbl1.Height + scrlbr1.Height;
+    end;
+end;
+
+procedure TForm1.tmr1Timer(Sender: TObject);
+begin
+    //
+end;
+
+end.
